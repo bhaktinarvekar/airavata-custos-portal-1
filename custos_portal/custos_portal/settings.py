@@ -43,6 +43,9 @@ INSTALLED_APPS = [
 
     'custos_portal.apps.auth.apps.AuthConfig',
     'custos_portal.apps.workspace.apps.WorkspaceConfig',
+    'rest_framework',
+    'custos_portal.apps.api.apps.ApiConfig'
+
 ]
 
 MIDDLEWARE = [
@@ -146,6 +149,16 @@ AUTHENTICATION_OPTIONS = {
 AUTHENTICATION_BACKENDS = [
     'custos_portal.apps.auth.backends.CustosAuthBackend'
 ]
+
+# Django REST Framework configuration
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
 
 WEBPACK_LOADER = {
     'COMMON': {
