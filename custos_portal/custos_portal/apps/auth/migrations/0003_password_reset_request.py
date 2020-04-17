@@ -46,15 +46,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='PasswordResetRequest',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=64)),
-                ('reset_code', models.CharField(default=uuid.uuid4, max_length=36, unique=True)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-            ],
-        ),
         migrations.AlterField(
             model_name='emailtemplate',
             name='template_type',
