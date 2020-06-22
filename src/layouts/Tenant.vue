@@ -30,6 +30,9 @@
                     <div v-if="value === 1" class="content">
                         <SettingsBasic />
                     </div>
+                    <div v-if="value === 2" class="content">
+                        <SettingsProperties />
+                    </div>
                 </div>
             </div>
         </div>
@@ -39,6 +42,7 @@
 <script>
 import CustomAppBar from '../components/CustomAppBar.vue';
 import SettingsBasic from '../layouts/SettingsBasic.vue';
+import SettingsProperties from '../layouts/SettingsProperties.vue';
 // import CustomNavContent from '../components/CustomNavContent.vue';
 
 export default {
@@ -46,6 +50,7 @@ export default {
     components: {
         CustomAppBar,
         SettingsBasic,
+        SettingsProperties
         // CustomNavContent
     },
     data() {

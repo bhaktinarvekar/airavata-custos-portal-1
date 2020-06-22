@@ -19,6 +19,7 @@ export default {
     padding: 10px 25px;
     border: 1px solid #ff6600;
     border-radius: 8px;
+    margin: 10px;
 }
 
 .grey {

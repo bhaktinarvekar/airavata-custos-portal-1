@@ -3,24 +3,72 @@
         <p class="heading">Sign Up</p>
         <p>Already have an account? <a class="link" href="#">Login</a></p>
         <br />
-        <form>
-            <CustomInput labelName="USERNAME" inputType="text" />
-            <CustomInput labelName="EMAIL" inputType="email" />
-            <CustomInput labelName="PASSWORD" inputType="password" />
-            <br />
-            <CustomButton color="coral" class="btn" labelName="SIGN UP" />      
-        </form>
+        <b-form>
+            <label class="inputLabels">Username</label>
+            <b-form-input 
+                v-model="form.username"
+                :state="state" 
+                class="inputText"
+                type="text"
+            />
+            <label class="inputLabels">Email</label>
+            <b-form-input 
+                v-model="form.email"
+                :state="!$v.form.email.$invalid" 
+                class="inputText"
+                type="email"
+            />
+            <label class="inputLabels">Password</label>
+            <b-form-input 
+                v-model="form.password"
+                :state="!$v.form.password.$invalid" 
+                class="inputText"
+                type="password"
+            />
+            <b-button v-on:click="submitForm" class="btn">Submit</b-button>
+        </b-form>
     </div>
 </template>
 
 <script>
-import CustomButton from '../components/CustomButton.vue';
-import CustomInput from '../components/CustomInput.vue';
+import {required, email} from "vuelidate/lib/validators";
 export default {
     name: "LoginPage",
-    components: {
-        CustomButton,
-        CustomInput
+    data() {
+        return {
+            form: {
+            username: '',
+            email: '',
+            password: ''
+        }
+        }
+    },
+    computed: {
+        state(){
+            return this.form.username.length >=4 ? true : false;
+        }
+    },
+    validations: {
+        form: {
+            username: {required},
+            email: {required, email},
+            password: {
+                required,
+                strongPassword(password){
+                    return(
+                        /[a-zA-Z]/.test(password) &&
+                        /[0-9]/.test(password) &&
+                        /\W/.test(password) &&
+                        password.length >= 8
+                    );
+                }
+            }
+        }
+    },
+    methods: {
+        submitForm(event) {
+            event.preventDefault();
+        }
     }
 }
 </script>
@@ -41,7 +89,20 @@ export default {
     /* margin-left: -100px; */
 }
 .btn {
-    margin-left: 0px;
+    color: white;
+    background-color: #ff6600;
+    padding: 10px 25px;
+    border: 1px solid #ff6600;
+    border-radius: 8px;
+}
+.inputLabels {
+    color: black;
+    font-weight: bold;
+}
+.inputText {
+    width: 300px;
+    border: 1px solid black;
+    margin-bottom: 15px;
 }
 
 </style>
