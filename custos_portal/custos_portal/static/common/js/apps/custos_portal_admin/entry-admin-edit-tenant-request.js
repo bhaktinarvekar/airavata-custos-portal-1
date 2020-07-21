@@ -3,7 +3,7 @@ import MainLayout from "../../components/MainLayout";
 import EditTenantRequest from "./EditTenantRequest";
 import axios from 'axios';
 import VueJwtDecode from 'vue-jwt-decode'
-
+import {CLIENT_ID, CLIENT_SECRET} from '../config/config';
 
 // import store from '../../store';
 
@@ -39,11 +39,13 @@ entry(Vue => {
           token = result[1]
       }
 
+      let encodedString = btoa(CLIENT_ID+":"+CLIENT_SECRET);
+
       let decodedEmail = VueJwtDecode.decode(token).email;
       
       axios.get(`https://custos.scigap.org/apiserver/tenant-management/v1.0.0/tenants?offset=0&status=ACTIVE&requester_email=${decodedEmail}`, {
                 headers: {
-                    'Authorization': 'Bearer Y3VzdG9zLTZud29xb2RzdHBlNW12Y3EwOWxoLTEwMDAwMTAxOkdpS3JHR1ZMVzd6RG9QWnd6Z0NpRk03V1V6M1BoSXVtVG1GeEFrcjc='
+                    'Authorization': `Bearer ${encodedString}`
                 }
       })
       .then(res => {
