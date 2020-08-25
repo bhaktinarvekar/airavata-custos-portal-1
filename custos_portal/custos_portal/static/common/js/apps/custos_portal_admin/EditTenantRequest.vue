@@ -2,10 +2,10 @@
     <div>
         <div class="row">
             <div class="col">
-                <h1 class="h4 mb-4">Update Tenant Request Form</h1>
+                <h1 class="h4 mb-4 heading">Update Tenant Request Form</h1>
             </div>
         </div>
-        <div>
+        <div class="card">
             <b-form @submit="onSubmit">
                 <b-form-group
                         id="fieldset-1"
@@ -14,6 +14,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -28,6 +29,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -44,6 +46,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -61,6 +64,7 @@
                                 label-for="input-1"
                                 :invalid-feedback="invalidFeedback"
                                 :valid-feedback="validFeedback"
+                                class="inputLabels"
                         >
                             <b-form-input
                                     id="input-1"
@@ -78,6 +82,7 @@
                                 label-for="input-1"
                                 :invalid-feedback="invalidFeedback"
                                 :valid-feedback="validFeedback"
+                                class="inputLabels"
                         >
                             <b-form-input
                                     id="input-1"
@@ -96,6 +101,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -112,6 +118,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-input type="password"
                              id="text-password"
@@ -129,10 +136,11 @@
                         <b-form-group
                                 id="fieldset-1"
                                 description=""
-                                label="Primary contact"
+                                label="Primary Contact"
                                 label-for="input-1"
                                 :invalid-feedback="invalidFeedback"
                                 :valid-feedback="validFeedback"
+                                class="inputLabels"
                         >
                             <b-form-input
                                     id="input-1"
@@ -150,6 +158,7 @@
                                 label-for="input-1"
                                 :invalid-feedback="invalidFeedback"
                                 :valid-feedback="validFeedback"
+                                class="inputLabels"
                         >
                             <b-form-input
                                     id="input-1"
@@ -170,6 +179,7 @@
                                     label-for="input-1"
                                     :invalid-feedback="invalidFeedback"
                                     :valid-feedback="validFeedback"
+                                    class="inputLabels"
                             >
                                 <b-input-group>
                                     <b-form-input
@@ -188,7 +198,7 @@
                         </b-col>
                     </b-form-row>
                 </div>
-                <b-form-group label="Scope:">
+                <b-form-group label="Scope:" class="inputLabels">
                     <b-form-checkbox-group
                             id="checkbox-group-1"
                             v-model="form.scope"
@@ -203,6 +213,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -218,6 +229,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -233,6 +245,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-input
                             id="input-1"
@@ -248,6 +261,7 @@
                         label-for="input-1"
                         :invalid-feedback="invalidFeedback"
                         :valid-feedback="validFeedback"
+                        class="inputLabels"
                 >
                     <b-form-textarea
                             rows="3"
@@ -258,7 +272,7 @@
                             trim>
                     </b-form-textarea>
                 </b-form-group>
-                <b-form-group label="Application Type">
+                <b-form-group label="Application Type" class="inputLabels">
                     <b-form-radio-group
                             id="radio-group-1"
                             v-model="form.application_type"
@@ -266,7 +280,7 @@
                             name="radio-options"
                     ></b-form-radio-group>
                 </b-form-group>
-                <b-button :disabled="isUpdateDisable" type="submit" variant="primary" >Update</b-button>
+                <b-button :disabled="isUpdateDisable" type="submit" variant="primary" class="btnUpdate">Update</b-button>
             </b-form>
         </div>
     </div>
@@ -431,3 +445,43 @@
         }
     }
 </script>
+<style scoped>
+.btnUpdate {
+    color: white;
+    background-color: #ff6600;
+    padding: 10px 25px;
+    border: 1px solid #ff6600;
+    border-radius: 8px;
+}
+.btnUpdate:hover {
+        color: white;
+          background-color: #944203;
+          padding: 10px 25px;
+          border: 1px solid #944203;
+          border-radius: 8px;
+}
+.btnUpdate:focus {
+        color: white;
+          background-color: #944203;
+          padding: 10px 25px;
+          border: 1px solid #944203;
+          border-radius: 8px;
+}
+.inputLabels {
+    color: black;
+    font-weight: bold;
+}
+.inputText {
+    width: 300px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+}
+.heading {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+.card {
+    padding: 25px;
+}
+</style>

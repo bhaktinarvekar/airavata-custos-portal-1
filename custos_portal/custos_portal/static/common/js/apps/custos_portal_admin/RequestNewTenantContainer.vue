@@ -692,7 +692,7 @@
 }
 .btnCustom:hover {
         color: white;
-          background-color: #944203;    
+          background-color: #944203;
           padding: 10px 25px;
           border: 1px solid #944203;
           border-radius: 8px;

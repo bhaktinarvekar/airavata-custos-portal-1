@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col">
-                <h1 class="h4 mb-4">Tenant Request Details</h1>
+                <h1 class="h4 mb-4 heading">Tenant Request Details</h1>
             </div>
         </div>
         <div class="row">
@@ -12,7 +12,7 @@
                         <table class="table">
                             <tbody>
                             <tr>
-                                <th scope="row">Request Id</th>
+                                <th scope="row">Request ID</th>
                                 <td>
                                     <div> {{tenantRequest.tenant_id}}</div>
                                 </td>
@@ -36,11 +36,11 @@
                                 <td>{{tenantRequest.admin_first_name}} {{ " " }} {{tenantRequest.admin_last_name}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Primary contact</th>
+                                <th scope="row">Primary Contact</th>
                                 <td>{{tenantRequest.contacts[0]}}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Secondary contact</th>
+                                <th scope="row">Secondary Contact</th>
                                 <td>{{tenantRequest.contacts[1]}}</td>
                             </tr>
                             <tr>
@@ -97,3 +97,11 @@
         }
     }
 </script>
+
+<style scoped>
+.heading {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+</style>

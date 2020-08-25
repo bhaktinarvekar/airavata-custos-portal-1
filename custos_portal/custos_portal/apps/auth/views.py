@@ -59,44 +59,50 @@ def callback_error(request, idp_alias):
     })
 
 
+# def create_account(request):
+#     if request.method == 'POST':
+#         form = forms.CreateAccountForm(request.POST)
+#         if form.is_valid():
+#             try:
+#                 username = form.cleaned_data['username']
+#                 email = form.cleaned_data['email']
+#                 first_name = form.cleaned_data['first_name']
+#                 last_name = form.cleaned_data['last_name']
+#                 password = form.cleaned_data['password']
+#                 is_temp_password = False
+#                 result = user_management_client.register_user(settings.CUSTOS_TOKEN, username, first_name, last_name,
+#                                                               password, email, is_temp_password)
+#                 if result.is_registered:
+#                     logger.debug("User account successfully created for : {}".format(username))
+#                     _create_and_send_email_verification_link(request, username, email, first_name, last_name,
+#                                                              settings.LOGIN_URL)
+#                     messages.success(
+#                         request,
+#                         "Account request processed successfully. Before you "
+#                         "can login you need to confirm your email address. "
+#                         "We've sent you an email with a link that you should "
+#                         "click on to complete the account creation process.")
+#                 else:
+#                     form.add_error(None, ValidationError("Failed to register the user with IAM service"))
+#             except TypeError as e:
+#                 logger.exception(
+#                     "Failed to create account for user", exc_info=e)
+#                 form.add_error(None, ValidationError(e))
+#             return render(request, 'custos_portal_auth/create_account.html', {
+#                 'options': settings.AUTHENTICATION_OPTIONS,
+#                 'form': form
+#             })
+#     else:
+#         form = forms.CreateAccountForm()
+#     return render(request, 'custos_portal_auth/create_account.html', {
+#         'options': settings.AUTHENTICATION_OPTIONS,
+#         'form': form
+#     })
+
 def create_account(request):
-    if request.method == 'POST':
-        form = forms.CreateAccountForm(request.POST)
-        if form.is_valid():
-            try:
-                username = form.cleaned_data['username']
-                email = form.cleaned_data['email']
-                first_name = form.cleaned_data['first_name']
-                last_name = form.cleaned_data['last_name']
-                password = form.cleaned_data['password']
-                is_temp_password = False
-                result = user_management_client.register_user(settings.CUSTOS_TOKEN, username, first_name, last_name,
-                                                              password, email, is_temp_password)
-                if result.is_registered:
-                    logger.debug("User account successfully created for : {}".format(username))
-                    _create_and_send_email_verification_link(request, username, email, first_name, last_name,
-                                                             settings.LOGIN_URL)
-                    messages.success(
-                        request,
-                        "Account request processed successfully. Before you "
-                        "can login you need to confirm your email address. "
-                        "We've sent you an email with a link that you should "
-                        "click on to complete the account creation process.")
-                else:
-                    form.add_error(None, ValidationError("Failed to register the user with IAM service"))
-            except TypeError as e:
-                logger.exception(
-                    "Failed to create account for user", exc_info=e)
-                form.add_error(None, ValidationError(e))
-            return render(request, 'custos_portal_auth/create_account.html', {
-                'options': settings.AUTHENTICATION_OPTIONS,
-                'form': form
-            })
-    else:
-        form = forms.CreateAccountForm()
-    return render(request, 'custos_portal_auth/create_account.html', {
+    return render(request, 'custos_portal_auth/form_create_account.html', {
+        'next': request.GET.get('next', None),
         'options': settings.AUTHENTICATION_OPTIONS,
-        'form': form
     })
 
 
