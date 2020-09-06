@@ -13,7 +13,7 @@ from custos.transport.settings import CustosServerClientSettings
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-settings = os.path.join(BASE_DIR, 'transport', 'settings.ini'
+settings = os.path.join(BASE_DIR, 'transport', 'settings.ini')
 custos_settings = CustosServerClientSettings(custos_host='custos host',
                                              custos_port='custos port',
                                              custos_client_id='custos client id',
