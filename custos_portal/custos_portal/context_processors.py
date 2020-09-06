@@ -18,10 +18,10 @@ logger = logging.getLogger(__name__)
 # load APIServerClient with default configuration
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 settings = os.path.join(BASE_DIR, 'transport', 'settings.ini')
-custos_settings = CustosServerClientSettings(custos_host='custos.scigap.org',
-                                             custos_port='31499',
-                                             custos_client_id='custos-6nwoqodstpe5mvcq09lh-10000101',
-                                             custos_client_sec='GiKrGGVLW7zDoPZwzgCiFM7WUz3PhIumTmFxAkr7',
+custos_settings = CustosServerClientSettings(custos_host='custos host',
+                                             custos_port='custos port',
+                                             custos_client_id='custos client id',
+                                             custos_client_sec='custos client secret',
                                              configuration_file_location=None)
 client = UserManagementClient(custos_settings)
 id_client = IdentityManagementClient(custos_settings)
