@@ -50,3 +50,6 @@ This Django projects consists of 3 apps
 
 We also use vuejs for the screens in Admin and Workspace folders. The components and other javascript files can be found
 at ```custos_portal\static\common```
+
+#### Install Custos Admin portal on VM - Installation
+Please follow the [installation guide](https://github.com/bhaktinarvekar/airavata-custos-portal-1/blob/standalone/installation_guide.md)
