@@ -22,8 +22,8 @@ COPY . ./
 WORKDIR /code/custos_portal/custos_portal/static/common
 COPY --from=build-stage /code/custos_portal/custos_portal/static/common .
 
-#ENTRYPOINT ["/code/scripts/start-server.sh"]
-CMD ["/code/scripts/start-server.sh"]
+#ENTRYPOINT ["/code/scripts/start_server.sh"]
+CMD ["/code/scripts/start_server.sh"]
 #ENTRYPOINT ["cd", "custos_portal"]
 #ENTRYPOINT ["echo", "pwd"]
 #ENTRYPOINT ["cd", "custos_portal", "&&", "python", "manage.py", "migrate"]
